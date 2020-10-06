@@ -1,0 +1,17 @@
+<form class="todo-form" [formGroup]="todoForm" (ngSubmit)="close()">
+  <div class="todo-form-close">
+    <button mat-icon-button color="warn" (click)="closeModal()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+  <div class="todo-form-body">
+    <mat-form-field class="form-field">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" required>
+      <mat-error *ngIf="todoForm.get('title').dirty && todoForm.get('title').hasError('required')">
+        Please enter a title
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <button mat-button color="primary" disabled="{{todoForm.pristine}}" (click)="close()">{{data ? 'Edit' : 'Create'}}</button>
+</form>

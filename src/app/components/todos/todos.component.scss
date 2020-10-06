@@ -1,0 +1,38 @@
+@import "src/app/styles/index";
+
+.page-todos {
+  position: relative;
+  padding: 5%;
+
+  .spinner {
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+
+      span {
+        display: block;
+        margin-right: 10px;
+        font-size: 16px;
+        color: darkblue;
+      }
+
+      button {
+        margin-right: 10px;
+      }
+    }
+  }
+}

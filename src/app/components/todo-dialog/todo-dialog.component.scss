@@ -1,0 +1,14 @@
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-close {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &-body {
+    display: flex;
+    justify-content: center;
+  }
+}

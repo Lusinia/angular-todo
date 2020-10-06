@@ -1,0 +1,17 @@
+@import "src/app/styles/index";
+.main-form {
+  width: 100%;
+  height: 100%;
+  background: #fff url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?cs=srgb&dl=pexels-miguel-%C3%A1-padri%C3%B1%C3%A1n-255379.jpg&fm=jpg") no-repeat center center;
+  background-size: cover;
+  &-inner {
+    width: 50%;
+    max-width: 400px;
+  }
+  .main-form-title {
+    text-align: center;
+  }
+  .input-half {
+    width: 45%;
+  }
+}

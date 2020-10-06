@@ -1,0 +1,30 @@
+<div class="page-todos">
+ <div *ngIf="loading" class="spinner center">
+   <mat-spinner [diameter]="60"></mat-spinner>
+ </div>
+ <div class="page-todos-header flex space-between">
+    <button mat-flat-button color="accent" (click)="editItem()">Add new todo</button>
+    <button mat-flat-button color="accent" (click)="logout()">Logout</button>
+ </div>
+  <div class="page-todos-list">
+    <ul>
+      <li *ngFor="let item of todos; let i = index" class="flex">
+        <span>{{i}}.</span>
+        <span>{{item?.title}}</span>
+        <button mat-raised-button color="warn" (click)="openConfirm(item)">X</button>
+        <button mat-raised-button color="primary" (click)="editItem(item)">Edit</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<ng-template #confirmDialog>
+  <div class="confirm">
+    <p>This will delete item from list.</p>
+    <p>Do you want to continue?</p>
+    <div class="flex width-100 space-between">
+      <button mat-raised-button color="warn" (click)="closeConfirm(true)">Yes</button>
+      <button mat-raised-button color="primary" (click)="closeConfirm(false)">No</button>
+    </div>
+  </div>
+</ng-template>
