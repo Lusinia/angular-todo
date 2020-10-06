@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,9 @@ export class AuthGuardService {
             this.auth.logout();
             return false;
           }
+        }), catchError(() => {
+          this.auth.logout();
+          return of(false);
         }));
       } else {
         this.auth.logout();

@@ -28,7 +28,7 @@
       </mat-form-field>
       <mat-form-field class="form-field">
         <mat-label>Phone</mat-label>
-        <input matInput formControlName="phone" appPhoneMask placeholder="1-770-736-8031" [minLength]="6" [maxLength]="14" pattern="\d{1}-\d{3}-\d{3}-\d{4}" required>
+        <input matInput formControlName="phone" (keydown)="onPhoneDown($event)" appPhoneMask placeholder="1-770-736-8031" [minLength]="6" [maxLength]="14" pattern="\d{1}-\d{3}-\d{3}-\d{4}" required>
         <mat-error *ngIf="sent && authForm.get('phone').hasError('required')">
           Please enter a phone number
         </mat-error>

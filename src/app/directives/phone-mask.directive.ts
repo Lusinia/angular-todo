@@ -9,7 +9,7 @@ export class PhoneMaskDirective {
   onKeyDown(event: KeyboardEvent): void {
     const input = event.target as HTMLInputElement;
 
-    let trimmed = input.value.replace(/\s+/g, '');
+    let trimmed = input.value.toString().replace(/\s+/g, '');
 
     if (trimmed.length > 16) {
       trimmed = trimmed.substr(0, 16);

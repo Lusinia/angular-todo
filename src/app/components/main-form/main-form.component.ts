@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './main-form.component.html',
   styleUrls: ['./main-form.component.scss']
 })
-export class MainFormComponent implements OnInit {
+export class MainFormComponent {
   authForm: FormGroup;
   sent: boolean;
 
@@ -31,9 +31,6 @@ export class MainFormComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
-
   sendRequest(): void {
     this.sent = true;
     if (this.authForm.valid) {
@@ -41,6 +38,13 @@ export class MainFormComponent implements OnInit {
         this.authService.setUser(resp);
         this.router.navigate(['todos']);
       });
+    }
+  }
+
+  onPhoneDown(event): void {
+    const invalid = /^[a-zA-Z]?$/g.test(event.key);
+    if (invalid) {
+      event.preventDefault();
     }
   }
 }
